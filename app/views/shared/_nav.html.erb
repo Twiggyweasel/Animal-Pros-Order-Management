@@ -2,18 +2,15 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Animal Pros Order Manager</a>
+  <%= link_to(root_path, class: 'navbar-brand') do %><img src='<%= image_url('animal-pros-logo.png') %>' style='height: 50px;' />Order Manager<% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto ml-4">
+    <ul class="navbar-nav mr-auto ml-2">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to "Customers", customers_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <%= link_to "Employees", employees_path, class: 'nav-link' %>
       </li>
     </ul>
   </div>

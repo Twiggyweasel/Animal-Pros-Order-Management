@@ -1,0 +1,12 @@
+<div class='row'>
+  <div class='col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4'>
+    <div class='alert alert-danger'>
+      <h6><%= pluralize(errors.count, "error") %> prohibited this record from being saved:</h6>
+      <ul>
+      <% errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
