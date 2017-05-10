@@ -13,7 +13,6 @@ RSpec.describe "customers/new", type: :view do
       :zip => "MyString",
       :day_number => "MyString",
       :night_number => "MyString",
-      :referral_code => "MyString"
     ))
   end
 
@@ -42,7 +41,6 @@ RSpec.describe "customers/new", type: :view do
 
       assert_select "input[name=?]", "customer[night_number]"
 
-      assert_select "input[name=?]", "customer[referral_code]"
     end
   end
 end

@@ -8,7 +8,8 @@ RSpec.describe "employees/show", type: :view do
       :region => "Region",
       :position => "Position",
       :phone => "Phone",
-      :is_active => false
+      :is_active => false,
+      :hire_date => "2017-03-15"
     ))
   end
 
@@ -20,5 +21,6 @@ RSpec.describe "employees/show", type: :view do
     expect(rendered).to match(/Position/)
     expect(rendered).to match(/Phone/)
     expect(rendered).to match(/false/)
+    expect(rendered).to match(/2017-03-15/)
   end
 end

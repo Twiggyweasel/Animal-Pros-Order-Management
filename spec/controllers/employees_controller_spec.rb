@@ -29,11 +29,11 @@ RSpec.describe EmployeesController, type: :controller do
   # Employee. As you add validations to Employee, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { first_name: "Richard", last_name: "Wise", hire_date: "2017-03-15", region: "North", position: "Tech", phone: "9134758889" }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { first_name: "", last_name: "", hire_date: "", region: "", position: "" }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -97,14 +97,15 @@ RSpec.describe EmployeesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { first_name: "Sarah" }
       }
 
       it "updates the requested employee" do
         employee = Employee.create! valid_attributes
         put :update, params: {id: employee.to_param, employee: new_attributes}, session: valid_session
         employee.reload
-        skip("Add assertions for updated state")
+
+        expect(employee.first_name).to eq("Sarah")
       end
 
       it "redirects to the employee" do

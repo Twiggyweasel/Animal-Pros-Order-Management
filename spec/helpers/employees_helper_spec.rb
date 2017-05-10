@@ -11,5 +11,25 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe EmployeesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "Provides list of regions" do
+    expect(regions).to eq(
+      [
+        ["North", "North"],
+        ["South", "South"],
+        ["East", "East"],
+        ["West", "West"]
+      ]
+    )
+  end
+
+  it "Provides a list of positions" do
+    expect(positions).to eq(
+      [
+        ["Tech", "Tech"],
+        ["Pro Team", "Pro Team"],
+        ["Lead", "Lead"],
+        ["Manager", "Manager"]
+      ]
+    )
+  end
 end

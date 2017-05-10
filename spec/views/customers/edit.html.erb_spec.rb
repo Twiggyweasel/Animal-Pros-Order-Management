@@ -12,8 +12,7 @@ RSpec.describe "customers/edit", type: :view do
       :state => "MyString",
       :zip => "MyString",
       :day_number => "MyString",
-      :night_number => "MyString",
-      :referral_code => "MyString"
+      :night_number => "MyString"
     ))
   end
 
@@ -42,7 +41,6 @@ RSpec.describe "customers/edit", type: :view do
 
       assert_select "input[name=?]", "customer[night_number]"
 
-      assert_select "input[name=?]", "customer[referral_code]"
     end
   end
 end

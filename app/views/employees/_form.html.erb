@@ -1,52 +1,76 @@
-<%= form_with(model: employee, local: true) do |form| %>
+<%= form_for employee do |f| %>
   <% if employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
-      <ul>
-      <% employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+    <%= render 'shared/errors', errors: employee.errors %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :employee_first_name %>
+  <div class='row my-2'>
+    <div class='col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3'>
+      <div class='row'>
+        <div class='col-md-6'>
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+        <div class='col-md-6'>
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :employee_last_name %>
+  <div class='row my-2'>
+    <div class='col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3'>
+      <div class='row'>
+        <div class='col-md-6'>
+          <%= f.label :region %>
+          <%= f.select :region, options_for_select(regions), { }, class: 'form-control' %>
+        </div>
+        <div class='col-md-6'>
+          <%= f.label :position %>
+          <%= f.select :position, options_for_select(positions), { }, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :region %>
-    <%= form.text_field :region, id: :employee_region %>
+  <div class='row my-2'>
+    <div class='col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3'>
+      <div class='row'>
+        <div class='col-md-6'>
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class: 'form-control' %>
+        </div>
+        <div class='col-md-6'>
+          <%= f.label :hire_date %>
+          <%= f.date_field :hire_date, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :position %>
-    <%= form.text_field :position, id: :employee_position %>
+    <div class='row my-2'>
+    <div class='col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3'>
+
+
+    <label class="custom-control custom-checkbox">
+      <%= f.check_box :is_active, class: 'custom-control-input' %>
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description"><%= f.label :is_active, "Is Employee Active" %></span>
+    </label>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :employee_phone %>
-  </div>
+  <div class="row">
+    <div class='col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3'>
+      <div class='row'>
+        <div class='col-md-6 col-lg-5 offset-lg-1'>
+          <%= f.submit(employee.new_record? ? 'Create Employee' : 'Update Employee', class: 'btn btn-success btn-block my-2') %>
+        </div>
+        <div class='col-md-6 col-lg-5'>
+          <%= link_to 'Cancel', employees_path, class: 'btn btn-danger btn-block my-2' %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :hire_date %>
-    <%= form.date_select :hire_date, id: :employee_hire_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_active %>
-    <%= form.check_box :is_active, id: :employee_is_active %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

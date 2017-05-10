@@ -9,7 +9,8 @@ RSpec.describe "employees/index", type: :view do
         :region => "Region",
         :position => "Position",
         :phone => "Phone",
-        :is_active => false
+        :is_active => false,
+        :hire_date => "2017-03-15"
       ),
       Employee.create!(
         :first_name => "First Name",
@@ -17,7 +18,8 @@ RSpec.describe "employees/index", type: :view do
         :region => "Region",
         :position => "Position",
         :phone => "Phone",
-        :is_active => false
+        :is_active => false,
+        :hire_date => "2017-03-15"
       )
     ])
   end
@@ -30,5 +32,6 @@ RSpec.describe "employees/index", type: :view do
     assert_select "tr>td", :text => "Position".to_s, :count => 2
     assert_select "tr>td", :text => "Phone".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
+    assert_select "tr>td", :text => "2017-03-15".to_s, :count => 2
   end
 end

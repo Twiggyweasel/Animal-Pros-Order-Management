@@ -8,7 +8,8 @@ RSpec.describe "employees/edit", type: :view do
       :region => "MyString",
       :position => "MyString",
       :phone => "MyString",
-      :is_active => false
+      :is_active => false,
+      :hire_date => "2017-03-16"
     ))
   end
 
@@ -21,13 +22,14 @@ RSpec.describe "employees/edit", type: :view do
 
       assert_select "input[name=?]", "employee[last_name]"
 
-      assert_select "input[name=?]", "employee[region]"
+      assert_select "select[name=?]", "employee[region]"
 
-      assert_select "input[name=?]", "employee[position]"
+      assert_select "select[name=?]", "employee[position]"
 
       assert_select "input[name=?]", "employee[phone]"
 
       assert_select "input[name=?]", "employee[is_active]"
+
     end
   end
 end
